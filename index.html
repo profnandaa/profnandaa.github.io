@@ -2,10 +2,34 @@
 <html>
     <head>
         <title>Labs!</title>
+        <style>
+        pre {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 20%;
+        }
+
+        pre span {
+            color: #128812;
+        }
+
+        </style>
     </head>
     <body>
         <pre>
-            Hello, world, it's me :)
+            $ greet
+            <span>Hello world, it's me :)</span>
+            
+            $ redirect --url nandaa.com
         </pre>
+        
+        <script>
+            setTimeout(
+                function () {
+                    // window.location='http://nandaa.com';
+                },
+                3000
+            );
+        </script>
     </body>
 </html>
