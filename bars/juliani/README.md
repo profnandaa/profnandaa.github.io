@@ -16,7 +16,7 @@ This page will be chronicaling _bars_ from [Juliani's](https://juliani.co.ke) la
 
 ### Day 3
 
-> _"Ushawai notice, Kenyatta Hospital iko karibu na City Mortuary, <br/>Nairobi Hospital na Funeral Home ya Lee, <br\>Haziko mbali?"_
+> _"Ushawai notice, Kenyatta Hospital iko karibu na City Mortuary, <br/>Nairobi Hospital na Funeral Home ya Lee, <br/>Haziko mbali?"_
 
 ### Day 4
 
