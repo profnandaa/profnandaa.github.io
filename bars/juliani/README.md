@@ -1,4 +1,6 @@
-# `#100DaysOfBars`
+# `#100DaysOfBars` from `#Masterpiece`
+
+> ℹ **Twitter Hashtags:** [#100DaysOfBars](https://twitter.com/hashtag/100DaysOfBars) [#Masterpiece](https://twitter.com/hashtag/masterpiece)
 
 This page will be chronicaling _bars_ from [Juliani's](https://juliani.co.ke) latest album, _Masterpiece_.
 
