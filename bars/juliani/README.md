@@ -21,3 +21,11 @@ This page will be chronicling _bars_ from [Juliani's](https://juliani.co.ke) lat
 ### Day 4
 
 > _"Picha za wedding na picha za matanga ukidedi bado zinapata likes"_
+
+### Day 5
+
+> _"We're living in the past, present, future, simultaneously, <br/> Penye nilitoka ndo nimekanyaga na ndo nitarudi mchangani eventually._
+
+### Day 6
+
+>_"Apple a day, <br/>bado haikuweka the doctor away, <br/>uliza Steve Jobs."_
