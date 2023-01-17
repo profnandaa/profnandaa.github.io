@@ -2,7 +2,7 @@
 title: "C Pointers Demystified"
 date: 2023-01-17T03:01:44+03:00
 tags: ["c", "pointers"]
-draft: true
+#draft: true
 author: Anthony Nandaa
 ---
 
@@ -241,5 +241,5 @@ TBD
 TBD
 
 ## A Note on Memory Leaks
-- _Leak_ - failing to release a resource in a timely manner.
+- A _Leak_ occurs when a process fails to release a resource in a timely manner.
 - Memory leak occurs when programmers create a memory in heap and forget to delete it.
