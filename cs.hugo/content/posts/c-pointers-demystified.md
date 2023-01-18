@@ -12,8 +12,6 @@ author: Anthony Nandaa
 
   - Allow us to _indirectly_ access variables (i.e. we can talk about its address rather than its _value_)
 
-> _TODO: add diagram here!_
-
 ### Importance of Pointers:
 
 - More flexible pass-by-reference
@@ -30,9 +28,32 @@ int *ptr;
 The pointer can then be initialized to a memory address for a variable, which is found by using `&`, e.g.
 
 ```c
-int x = 30;
+int x = 20;
 int *px = &x;
 ```
+
+To illustrate this with a diagram and code, consider the following  simple program:
+
+```c
+// pointers1.c
+#include <stdio.h>
+
+int main() {
+    int x = 20;
+    int *px = &x;
+    printf("ptr: %p -> addr %p has: %d\n", &px, px, x);
+
+    return 0;
+}
+```
+
+When compiled with `gcc pointers1.c` and run, you get something similar to this:
+```
+ptr: 0x7ffec8780c10 -> addr 0x7ffec8780c0c has: 20
+```
+_the pointer `px` is in address `0x7ffec8780c10`, pointing 4 bytes away at address `0x7ffec8780c0c` that contains `x`; consider the diagram below_
+
+![memory_model](https://user-images.githubusercontent.com/261265/213256470-873f6f21-a967-4b49-9858-9608ada9d525.png)
 
 > ℹ **Note** <br/>
 > My own preference and the prevalent practice is to put the `*` just before the name of the variable as opposed to putting it after the type, as some do. The later is also misleading when you have a list of variables in one line, e.g. <br/>`int *ptr, x, y` vs. `int* ptr, x, y`. <br/>(`x` and `y` are just integers but the later may make it look like all are pointers!)
