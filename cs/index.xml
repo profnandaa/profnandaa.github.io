@@ -14,8 +14,7 @@
       
       <guid>https://nandaa.dev/cs/posts/c-pointers-demystified/</guid>
       <description>Introduction Pointers are variables that store the address of another variable.
-Allow us to indirectly access variables (i.e. we can talk about its address rather than its value) TODO: add diagram here!
-Importance of Pointers: More flexible pass-by-reference Manipulate complex data structures efficiently, even if their data is scattered in deferent memory locations Use polymorphism - calling functions on data without knowing exactly what kind of data it is. (needs example!</description>
+Allow us to indirectly access variables (i.e. we can talk about its address rather than its value) Importance of Pointers: More flexible pass-by-reference Manipulate complex data structures efficiently, even if their data is scattered in deferent memory locations Use polymorphism - calling functions on data without knowing exactly what kind of data it is. (needs example!) Declaring Pointers Simply &amp;lt;type&amp;gt; *&amp;lt;var_name&amp;gt;;, e.</description>
     </item>
     
   </channel>

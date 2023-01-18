@@ -141,7 +141,7 @@ Since pointers point to memory addresses which are contiguous, it is therefore p
 
 Let's look at an example:
 
-```cpp
+```c
 int arr[] = { 1, 2, 3, 4 };
 int *p = arr;   // points to the first element in arr
 p++;            // now p is pointing at the 2nd element
@@ -159,7 +159,8 @@ In C, we create a _string_ by using an array of characters (loosely). A pointer 
 Now, how do we tell we have reached the end of our "string"? We use a null terminator `\0`. That is when it is a proper string, else, it's just an array of characters.
 
 Let's look at an example:
-```cpp
+
+```c
 char s[] = { 'h', 'e', 'l', 'l', 'o', '\0' };
 char *ps = s;
 // notice that the length of the array will always be +1 the length of the
@@ -171,7 +172,8 @@ printf("%s, length = %ld\n", ps2, strlen(ps2));
 ```
 
 As we had mentioned earlier, there is no way to know you have reached the end of an array, unless you put a _sentinel_ value to mark the end. We use `\0` to mark the end of a string. For instance, this:
-```cpp
+
+```c
 char hackedStr[] = { 'g', 'o', '\0', 'o', 'd'};
 printf("%s, str length = %ld, array length = %ld\n", hackedStr, strlen(hackedStr), sizeof(hackedStr));
 ```
@@ -181,7 +183,8 @@ printf("%s, str length = %ld, array length = %ld\n", hackedStr, strlen(hackedStr
 We can have a pointer pointing to a pointer, and even another pointer pointing to the/that pointer (`pointer -> pointer -> pointer`).
 
 Let's look at a simple example:
-```cpp
+
+```c
 int y = 10;
 int *py = &y;
 int **ppy = &py;
@@ -198,7 +201,8 @@ printf("%d\n", y);
 ```
 
 Likewise, you can have a pointer that points to the array pointer, eg:
-```cpp
+
+```c
 int arr2[] = { 2, 5, 6, 8 };
 int *p2 = arr2;
 int **ppArr = &p2;
@@ -211,18 +215,30 @@ printf("2nd element in arr: %d\n", *(*ppArr + 1)); // notice the brackets
 
 ### Passing by Value vs. by Reference
 
-A pointer is a _value_ too, only that that value is a reference. Let that sink.
+A pointer is a _value_ too, only that that value is a reference. _Let that sink in_.
 
 Therefore you can pass a pointer to a function _by value_ or _by reference_. Reference here will be a pointer to that pointer.
 
 To illustrate this, let's look at the following example:
-```cpp
+
+```c
 void swap1(int *a, int *b)
 {
     int *temp = a;
     a = b;
     b = temp;
 }
+
+// the above function is for illustration purpose only
+// the actual swapping function should be:
+/*
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+*/
 
 int m = 30, n = 20;
 int *pm = &m, *pn = &n;
@@ -231,8 +247,9 @@ printf("m -> %d, n -> %d\n", *pm, *pn); // no swap done!
 ```
 Basically, we just passed by value (a copy of the pointers) to the function, and therefore, our original pointers remained untouched.
 
-We have to pass by by refeference (a pointer to the pointer):
-```cpp
+We have to pass by refeference (a pointer to the pointer):
+
+```c
 void swap2(int **a, int **b)
 {
     int *temp = *a;
@@ -248,19 +265,97 @@ printf("m -> %d, n -> %d\n", *pm, *pn); // now swap done
 ```
 
 ### Returning Pointers
-TBD
 
-### Pointer to Functions
-TBD
+As you may have known by now, you can pass pointers to functions and also you can return pointers from a function.
+
+The following example is **very buggy** but it passes the point across -- that you can return a pointer from a function. I leave the exercise of finding out why it's buggy to you, to save on the space that I'd have to use to explain how the _function callstack_ works:
+
+> _We will revisit this example when we look at `malloc`._
+
+```c
+int* return_ptr() {
+    int x = 30;
+    return &x; // pointer to x (local)
+}
+```
+
+## Pointer to Functions
+
+> _I'd initially planned to cover this topic as a sub-section of **Pointers and Functions** but I think it deserves it's own section._
+
+This concept is not covered in most books but it is such a powerful concept. With pointers to functions, you can now pass functions to other functions (by reference).
+
+This is the general format on how you declare such a pointer:
+```
+<return_type> (*<name_of_ptr>)(<type_of_params,...>) = &<the_function_pointed_to>
+```
+For example, for a function with a signature like `int sum(int x, int y)`, this is how we will write its pointer:
+
+```c
+int sum(int x, int y);
+int (*sum_ptr)(int, int) = &sum;
+
+// and then calling
+int z = (*sum_ptr)(30, 50);
+```
+
+And thefore you can pass it to another function thus:
+
+```c
+
+void do_op(int (*fn_ptr)(int, int)) {
+    int x = 30, y = 40;
+    printf("%d + %d = %d\n", x, y, (*fn_ptr)(x, y));
+}
+
+int main() {
+    // ...
+    do_op(&sum);
+    // ...
+    return 0;
+}
+```
+
+Let's look at another example of a _callback_ function `print(int)` passed to another function `mul` which multiplies two numbers and then calls the `print` function which prints out the results. So we leave the caller decide on how they want to print, formatting, etc.
+
+```c
+#include <stdio.h>
+
+void print(int prod) {
+    printf("The product = %d\n", prod);
+}
+
+void mul(int x, int y, void (*print_fn)(int)) {
+    int prod = x * y;
+    (*print_fn)(prod);
+}
+
+int main() {
+    mul(20, 30, &print);
+    return 0;
+}
+```
 
 ## `malloc`, `calloc` and `free`
 
-- The C library function `void *malloc(size_t size)` allocates a block of _size_ bytes of memory, returning a pointer to the beginning of the block.
-- Defined in `stdlib.h`
-- The function returns a pointer to the allocated memory, or `NULL` if the request fails.
+> _**TBD** - I would to do a good service ot this sub-topic, especially explain the difference between the heap and the stack and the interelation. So, check out the next update coming soon._
 
-TBD
-
-## A Note on Memory Leaks
+## Memory Leaks
 - A _Leak_ occurs when a process fails to release a resource in a timely manner.
 - Memory leak occurs when programmers create a memory in heap and forget to delete it.
+
+> Examples: TBD
+
+## Pointers War Stories
+
+> _**TBD** -- if you have any war stories, please do share - `pointers@nandaa.dev`._
+
+## Further Reading
+
+I'd encourage you to take a look at a number of opensource C source-codes and see how pointers are used. For a start, you can check out the following:
+
+- [Linux source-code](https://elixir.bootlin.com/linux/latest/source)
+- [Git source-code](https://github.com/git/git)
+
+> 💡 _This series is a WIP, keep checking back for updates. Will try do a changelog_
+> _This blog can be [reviewed inline here](https://github.com/profnandaa/profnandaa.github.io/pull/2), I will appreciate your suggestions, comments and nitpicks._
