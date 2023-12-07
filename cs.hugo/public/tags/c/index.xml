@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>c on @profnandaa | CS Blog</title>
+    <link>https://nandaa.dev/cs/tags/c/</link>
+    <description>Recent content in c on @profnandaa | CS Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Jan 2023 03:01:44 +0300</lastBuildDate><atom:link href="https://nandaa.dev/cs/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C Pointers Demystified</title>
+      <link>https://nandaa.dev/cs/posts/c-pointers-demystified/</link>
+      <pubDate>Tue, 17 Jan 2023 03:01:44 +0300</pubDate>
+      
+      <guid>https://nandaa.dev/cs/posts/c-pointers-demystified/</guid>
+      <description>Introduction Pointers are variables that store the address of another variable.
+Allow us to indirectly access variables (i.e. we can talk about its address rather than its value) Importance of Pointers: More flexible pass-by-reference Manipulate complex data structures efficiently, even if their data is scattered in deferent memory locations Use polymorphism - calling functions on data without knowing exactly what kind of data it is. (needs example!) Declaring Pointers Simply &amp;lt;type&amp;gt; *&amp;lt;var_name&amp;gt;;, e.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nandaa.dev/cs/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/tags/c/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/posts/c-pointers-demystified/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/tags/pointers/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/posts/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/tags/</loc>
+    <lastmod>2023-01-17T03:01:44+03:00</lastmod>
+  </url><url>
+    <loc>https://nandaa.dev/cs/categories/</loc>
+  </url>
+</urlset>
